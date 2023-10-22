@@ -1,0 +1,95 @@
+.home {
+  display: flex;
+  flex-direction: column;
+
+  margin: 20px;
+
+  .home-title {
+    display: flex;
+    flex-direction: row;
+    margin: 5px auto;
+
+    button {
+      width: 50px;
+      padding: 5px;
+      border-radius: 20px;
+      font-size: 1.4rem;
+      margin: 0 20px;
+      background: $green1;
+      color: $brown;
+    }
+
+  }
+
+  .home-content {
+
+    margin: 5px auto;
+
+    input {
+      font-size: 1.2rem;
+      font-family: $font1;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 5px;
+      border-radius: 20px;
+      background: $red;
+      color: wheat;
+      margin: 0 10px
+    }
+
+    select {
+      font-size: 1.2rem;
+      height: 50px;
+      border: 5px solid $green1;
+      padding: 5px;
+      margin: 5px;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: $red;
+      background: $grey;
+      padding: 5px;
+      margin: 15px auto;
+      text-align: center;
+    }
+
+    h5 {
+      padding-left: 5px;
+      color: $blue;
+      font-size: 1.1rem;
+    }
+
+    .extract-content {
+      margin: 10px auto;
+
+      extract-click {
+        display: flex;
+
+        i {
+          height: 50px;
+          color: $red;
+
+          &:hover {
+          
+            cursor: pointer;
+            
+          }
+        }
+
+        button {
+          margin: 5px auto;
+        }
+
+      }
+
+    }
+
+  }
+
+
+}
