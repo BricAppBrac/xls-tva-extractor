@@ -1,48 +1,42 @@
 import React, { useEffect, useState } from "react";
 import XLSExtractor from "../components/XLSExtractor";
-import UploadXLS from "../components/UploadXLS";
-// import PDFViewer from "../components/PDFViewer";
+import UploadXls from "../components/UploadXls";
 import { useDispatch, useSelector } from "react-redux";
-// import {
-//   clearPdfFile,
-//   clearPdfName,
-//   clearPdfType,
-// } from "../feature/textSelectedSlice";
-// import { clearMessageInfo } from "../feature/messageInfoSlice";
+import { clearXlsName, clearXlsSelections } from "../feature/textSelectedSlice";
+import { clearMessageInfo } from "../feature/messageInfoSlice";
 
 const Home = () => {
-  // const pdfFile = useSelector((state) => state.textSelectedStore.pdfFile);
-  // const messageInfoFromStore = useSelector(
-  //   (state) => state.messageInfoStore.messageInfo
-  // );
-  // const [clickHome, setClickHome] = useState(false);
+  const xlsName = useSelector((state) => state.textSelectedStore.xlsName);
+  const messageInfoFromStore = useSelector(
+    (state) => state.messageInfoStore.messageInfo
+  );
+  const [clickHome, setClickHome] = useState(false);
 
-  // const [messageInfo, setMessageInfo] = useState(messageInfoFromStore);
+  const [messageInfo, setMessageInfo] = useState(messageInfoFromStore);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleHome = () => {
     console.log("handleHome");
-    // setClickHome(true);
+    setClickHome(true);
   };
 
-  // useEffect(() => {
-  //   // Défilement vers le haut de la page au chargement
-  //   window.scrollTo(0, 0);
-  //   setClickHome(false);
-  // }, []);
+  useEffect(() => {
+    // Défilement vers le haut de la page au chargement
+    window.scrollTo(0, 0);
+    setClickHome(false);
+  }, []);
 
-  // useEffect(() => {
-  //   setMessageInfo(messageInfoFromStore);
-  //   setClickHome(false);
-  // }, [messageInfoFromStore]);
+  useEffect(() => {
+    setMessageInfo(messageInfoFromStore);
+    setClickHome(false);
+  }, [messageInfoFromStore]);
 
-  // useEffect(() => {
-  //   dispatch(clearPdfFile());
-  //   dispatch(clearPdfType());
-  //   dispatch(clearPdfName());
-  //   dispatch(clearMessageInfo());
-  // }, [clickHome, dispatch]);
+  useEffect(() => {
+    dispatch(clearXlsName());
+    dispatch(clearXlsSelections());
+    dispatch(clearMessageInfo());
+  }, [clickHome, dispatch]);
 
   let content = (
     <div className="home">
@@ -53,13 +47,14 @@ const Home = () => {
         </button>
       </div>
       <div className="home-content">
-        {/* <UploadXLS /> */}
-        <XLSExtractor />
-        {/* <p>
-          <i className="fa-regular fa-hand-point-right"></i> {messageInfo}
-        </p> */}
-        {/* {pdfFile ? <PDFViewer pdfUrl={pdfFile} /> : null}
-        {pdfFile ? <TextExtractor /> : null} */}
+        <div>
+          {messageInfoFromStore.split("\n").map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
+        </div>
+        <UploadXls />
+
+        {xlsName ? <XLSExtractor /> : null}
       </div>
     </div>
   );
