@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import XLSExtractor from "../components/XLSExtractor";
-import UploadXls from "../components/UploadXls";
+import UploadXLS from "../components/UploadXLS";
 import { useDispatch, useSelector } from "react-redux";
 import { clearXlsName, clearXlsSelections } from "../feature/textSelectedSlice";
 import { clearMessageInfo } from "../feature/messageInfoSlice";
@@ -52,7 +52,7 @@ const Home = () => {
             <p key={index}>{line}</p>
           ))}
         </div>
-        <UploadXls />
+        <UploadXLS />
 
         {xlsName ? <XLSExtractor /> : null}
       </div>

@@ -4,7 +4,7 @@ import { setXlsName, addXlsSelection } from "../feature/textSelectedSlice";
 import * as XLSX from "xlsx";
 import * as xls from "xlsjs";
 
-const UploadXls = () => {
+const UploadXLS = () => {
   const [selectedFileXls, setSelectedFileXls] = useState(null);
   const dispatch = useDispatch();
 
@@ -127,4 +127,4 @@ const UploadXls = () => {
   );
 };
 
-export default UploadXls;
+export default UploadXLS;
