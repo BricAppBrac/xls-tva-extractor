@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setXlsName, addXlsSelection } from "../feature/textSelectedSlice";
 import * as XLSX from "xlsx";
 import * as xls from "xlsjs";
 
 const UploadXLS = () => {
-  const [selectedFileXls, setSelectedFileXls] = useState(null);
   const dispatch = useDispatch();
 
   const xlsName = useSelector((state) => state.textSelectedStore.xlsName);
@@ -29,8 +28,6 @@ const UploadXLS = () => {
   // Stocke le fichier sélectionné dans le store
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-
-    setSelectedFileXls(file);
 
     // const fileUrl = URL.createObjectURL(file);
     dispatch(setXlsName(file.name));

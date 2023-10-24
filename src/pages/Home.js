@@ -12,8 +12,6 @@ const Home = () => {
   );
   const [clickHome, setClickHome] = useState(false);
 
-  const [messageInfo, setMessageInfo] = useState(messageInfoFromStore);
-
   const dispatch = useDispatch();
 
   const handleHome = () => {
@@ -26,11 +24,6 @@ const Home = () => {
     window.scrollTo(0, 0);
     setClickHome(false);
   }, []);
-
-  useEffect(() => {
-    setMessageInfo(messageInfoFromStore);
-    setClickHome(false);
-  }, [messageInfoFromStore]);
 
   useEffect(() => {
     dispatch(clearXlsName());

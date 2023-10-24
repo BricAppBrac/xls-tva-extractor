@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
-import { Document, Page } from "react-pdf";
 import pdf from "./cerfa1301SD.pdf";
 import { useSelector } from "react-redux";
 
 const XLSExtractor = () => {
   const xlsData = useSelector((state) => state.textSelectedStore.xlsSelections); // Récupération du tableau de données depuis le store
-
-  const [pageNumber] = useState(1);
-  const [pdfLoaded, setPdfLoaded] = useState(false);
 
   const handleFileTva = async () => {
     console.log("handleFileTva");
@@ -57,12 +53,6 @@ const XLSExtractor = () => {
           color: rgb(0, 0, 0),
         });
       };
-
-      // ************************************** //
-      //Préparation du nom de fichier cible avec Numéro de id
-      const numId = data[0];
-      // Utilisez cette chaîne pour créer le nom du fichier
-      const fileName = `Attest_TVA_${numId}.pdf`;
 
       // *** IDENTITE DU CLIENT OU DE SON REPRESENTANT
       // NOM REP (35 mm, 237 mm)
@@ -160,12 +150,6 @@ const XLSExtractor = () => {
           Création fichier TVA cerfa N°1301-SD_2016
         </button>
       </div>
-
-      {pdfLoaded && (
-        <Document file={"./cerfa1301SD.pdf"}>
-          <Page pageNumber={pageNumber} width={600} />
-        </Document>
-      )}
     </div>
   );
 };
