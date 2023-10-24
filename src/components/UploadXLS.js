@@ -80,17 +80,17 @@ const UploadXls = () => {
         if (row.length >= 11) {
           // Extraction des données des colonnes spécifiques
           const rowData = [
-            row[0], // Colonne A
-            row[1], // Colonne B
-            row[2], // Colonne C
-            row[3], // Colonne D
-            row[4], // Colonne E
-            row[5], // Colonne F
-            row[6], // Colonne G
-            row[7], // Colonne H
-            row[10], // Colonne K
-            row[11], // Colonne L
-            row[12], // Colonne M
+            row[0].toString(), // Colonne A
+            row[1].toString(), // Colonne B
+            row[2].toString(), // Colonne C
+            row[3].toString(), // Colonne D
+            row[4].toString(), // Colonne E
+            row[5].toString(), // Colonne F
+            row[6].toString(), // Colonne G
+            row[7].toString(), // Colonne H
+            row[10].toString(), // Colonne K
+            row[11].toString(), // Colonne L
+            row[12].toString(), // Colonne M
             convertExcelDateToDateString(row[9]), // Colonne J
           ];
           // Ajout de la ligne de données au tableau

@@ -8,10 +8,8 @@ const store = configureStore({
     messageInfoStore: messageInfoReducer,
   },
 
-  // devTools: false, //PRODUCTION
-  devTools: true, //DEVELOPPEMENT
+  devTools: false, //PRODUCTION
+  // devTools: true, //DEVELOPPEMENT
 });
-
-// setupListeners(store.dispatch);
 
 export default store;
